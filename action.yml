@@ -13,7 +13,7 @@ outputs:
     description: 'response from server'
 runs:
   using: 'docker'
-  image: 'Dockerfile.python3'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.command }}
     - ${{ inputs.args }}
