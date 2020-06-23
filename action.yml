@@ -1,0 +1,19 @@
+# action.yml
+name: 'cd-scan'
+description: 'scan for vulnerabilities'
+inputs:
+  command:
+    description: "Which command to run, defaults to dryrun"
+    default: dryrun
+    required: true
+  args:
+    description: "Additional arguments to pass to Snyk"
+outputs:
+  message: # id of output
+    description: 'response from server'
+runs:
+  using: 'docker'
+  image: 'Dockerfile.python3'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.args }}
